@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Dónde Voto? Argentina | Consulta Rápida Padrón Electoral Oficial</title>
+    <meta name="description" content="Consultá tu lugar de votación en el padrón electoral oficial de Argentina. Ingresá tu DNI y te redirigimos al sitio de la CNE. Rápido y seguro.">
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #f0f2f5; color: #333; }
+        .container { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 90%; }
+        h1 { color: #0056b3; margin-bottom: 25px; font-size: 1.8em; }
+        input[type="text"] { width: calc(100% - 20px); padding: 12px 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 1.1em; text-align: center; }
+        button { background-color: #007bff; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer; transition: background-color 0.3s ease; width: 100%; }
+        button:hover { background-color: #0056b3; }
+        .disclaimer { margin-top: 20px; font-size: 0.9em; color: #666; }
+        .ads-container { margin-top: 30px; width: 100%; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Dónde Voto?</h1>
+        <p>Consultá tu lugar de votación en el padrón electoral oficial.</p>
+        <input type="text" id="dniInput" placeholder="Ingresá tu número de DNI (sin puntos)" maxlength="8">
+        <button id="consultarBtn">Ir al Padrón Oficial</button>
+        <p class="disclaimer">Serás redirigido a www.padron.gob.ar. No almacenamos tus datos.</p>
+    </div>
+
+    <div class="ads-container">
+        </div>
+
+    <script>
+        document.getElementById('consultarBtn').addEventListener('click', function() {
+            let dni = document.getElementById('dniInput').value.trim();
+            if (dni && !isNaN(dni) && dni.length >= 7 && dni.length <= 8) {
+                window.location.href = 'https://www.padron.gob.ar/';
+            } else {
+                alert('Por favor, ingresá un DNI válido (solo números, sin puntos).');
+            }
+        });
+
+        document.getElementById('dniInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('consultarBtn').click();
+            }
+        });
+    </script>
+</body>
+</html>
