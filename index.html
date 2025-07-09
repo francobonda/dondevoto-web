@@ -1,122 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¿Dónde Voto? - dondevoto.info</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f0f4f8;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-    }
-    header {
-      width: 100%;
-      background: #ffffff;
-      color: #333;
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 4px solid #1a73e8;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-    header img {
-      height: 40px;
-      vertical-align: middle;
-      margin-right: 0.5rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .container {
-      margin-top: 8rem;
-      background: white;
-      padding: 3rem 2rem;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      max-width: 500px;
-      width: 95%;
-      text-align: center;
-    }
-    label, input {
-      display: block;
-      width: 100%;
-      margin-top: 1rem;
-    }
-    input[type="text"] {
-      padding: 0.75rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    .btn {
-      margin-top: 1.5rem;
-      background: #1a73e8;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #155ab6;
-    }
-    .sponsor {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    footer {
-      margin-top: 3rem;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #aaa;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Dónde Voto? Argentina | Consulta Rápida Padrón Electoral Oficial</title>
+    <meta name="description" content="Consultá tu lugar de votación en el padrón electoral oficial de Argentina. Ingresá tu DNI y te redirigimos al sitio de la CNE. Rápido y seguro.">
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #f0f2f5; color: #333; }
+        .container { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 90%; }
+        h1 { color: #0056b3; margin-bottom: 25px; font-size: 1.8em; }
+        input[type="text"] { width: calc(100% - 20px); padding: 12px 10px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; font-size: 1.1em; text-align: center; }
+        button { background-color: #007bff; color: white; padding: 15px 30px; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer; transition: background-color 0.3s ease; width: 100%; }
+        button:hover { background-color: #0056b3; }
+        .disclaimer { margin-top: 20px; font-size: 0.9em; color: #666; }
+        .ads-container { margin-top: 30px; width: 100%; text-align: center; }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>¿Dónde voto?</h1>
-  </header>
-
-  <div class="container">
-    <p>Consultá tu lugar de votación de forma rápida y segura.</p>
-    <form action="https://www.padron.gob.ar/" method="get" target="_blank" onsubmit="return mostrarPublicidad();">
-      <label for="dni">Ingresá tu número de DNI:</label>
-      <input type="text" id="dni" name="dni" placeholder="Ej: 12345678" required>
-      <button type="submit" class="btn">Consultar lugar de votación</button>
-    </form>
-    <div class="sponsor">
-      <em>Publicidad: CasinoOnline25</em>
+    <div class="container">
+        <h1>¿Dónde Voto?</h1>
+        <p>Consultá tu lugar de votación en el padrón electoral oficial.</p>
+        <input type="text" id="dniInput" placeholder="Ingresá tu número de DNI (sin puntos)" maxlength="8">
+        <button id="consultarBtn">Ir al Padrón Oficial</button>
+        <p class="disclaimer">Serás redirigido a www.padron.gob.ar. No almacenamos tus datos.</p>
     </div>
-  </div>
 
-  <footer>
-    Este sitio no almacena datos ni está afiliado con la Cámara Nacional Electoral.
-  </footer>
+    <div class="ads-container">
+        </div>
 
-  <script>
-    function mostrarPublicidad() {
-      alert("Publicidad de CasinoOnline25: Jugá responsablemente. Serás redirigido al sitio oficial.");
-      return true;
-    }
-  </script>
+    <script>
+        document.getElementById('consultarBtn').addEventListener('click', function() {
+            let dni = document.getElementById('dniInput').value.trim();
+            if (dni && !isNaN(dni) && dni.length >= 7 && dni.length <= 8) {
+                window.location.href = 'https://www.padron.gob.ar/';
+            } else {
+                alert('Por favor, ingresá un DNI válido (solo números, sin puntos).');
+            }
+        });
+
+        document.getElementById('dniInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                document.getElementById('consultarBtn').click();
+            }
+        });
+    </script>
 </body>
 </html>
