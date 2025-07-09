@@ -3,136 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>¿Dónde Voto? Argentina | Consulta Rápida Padrón Electoral Oficial</title>
-  <meta name="description" content="Consultá tu lugar de votación en el padrón electoral oficial de Argentina. Ingresá tu DNI y te redirigimos al sitio de la CNE. Rápido y seguro.">
+  <title>¿Dónde Voto? Argentina | Consulta Oficial</title>
+  <meta name="description" content="Consultá tu lugar de votación en el padrón electoral oficial de Argentina. Ingresá tu DNI y te redirigimos al sitio de la CNE. Seguro, rápido y sin almacenar tus datos.">
   <style>
     body {
-      font-family: sans-serif;
-      background-color: #F4F4F4;
-      color: #333;
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #E5E7EB;
+      color: #222;
+    }
+    header {
+      background-color: #00264D;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: bold;
     }
     main {
-      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
+      padding: 50px 20px;
+      min-height: 70vh;
     }
     .container {
       background-color: #FFFFFF;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      text-align: center;
-      max-width: 400px;
+      padding: 40px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 500px;
       width: 100%;
+      text-align: center;
     }
     h1 {
-      color: #003366;
-      margin-bottom: 25px;
-      font-size: 1.8em;
+      color: #00264D;
+      font-size: 1.9em;
+      margin-bottom: 20px;
     }
     p {
       margin-bottom: 20px;
+      font-size: 1.05em;
     }
     input[type="text"] {
-      width: calc(100% - 20px);
-      padding: 12px 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 25px;
+      border: 1px solid #bbb;
       border-radius: 4px;
       font-size: 1.1em;
       text-align: center;
     }
     button {
-      background-color: #007ACC;
+      background-color: #0056b3;
       color: white;
-      padding: 15px 30px;
+      padding: 16px;
       border: none;
-      border-radius: 5px;
-      font-size: 1.2em;
+      border-radius: 3px;
+      font-size: 1.15em;
       cursor: pointer;
       transition: background-color 0.3s ease;
       width: 100%;
     }
     button:hover {
-      background-color: #0056b3;
-    }
-    .disclaimer {
-      margin-top: 20px;
-      font-size: 0.85em;
-      color: #777;
-      line-height: 1.5;
-    }
-    .disclaimer a {
-      color: #007ACC;
-      text-decoration: none;
+      background-color: #003c82;
     }
     .ads-container {
-      margin-top: 30px;
+      margin-top: 40px;
       width: 100%;
       text-align: center;
       min-height: 90px;
-      background: #f9f9f9;
-      border: 1px solid #ddd;
+      background: #F1F5F9;
+      border: 1px solid #ccc;
       border-radius: 6px;
       padding: 10px;
       font-size: 0.9em;
-      color: #666;
+      color: #555;
     }
     footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 0.85em;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-
-  <main>
-    <div class="container">
-      <h1>¿Dónde Voto?</h1>
-      <p>Consultá tu lugar de votación en el padrón electoral oficial.</p>
-      <input type="text" id="dniInput" placeholder="Ingresá tu número de DNI (sin puntos)" maxlength="8">
-      <button id="consultarBtn">Buscar</button>
-      <p class="disclaimer">
-        Esta web no pertenece a ninguna entidad oficial. Proveemos un acceso rápido a información pública.<br>
-        Serás redirigido a <a href="https://www.padron.gob.ar" target="_blank" rel="noopener">www.padron.gob.ar</a>. No almacenamos tus datos.
-      </p>
-    </div>
-
-    <div class="ads-container">
-      Publicidad
-      <!-- Aquí irá el script de Google AdSense -->
-    </div>
-  </main>
-
-  <footer>
-    © 2025 DondeVoto.info | Sitio no oficial
-  </footer>
-
-  <script>
-    document.getElementById('consultarBtn').addEventListener('click', function() {
-      let dni = document.getElementById('dniInput').value.trim();
-      if (dni && !isNaN(dni) && dni.length >= 7 && dni.length <= 8) {
-        window.location.href = 'https://www.padron.gob.ar/';
-      } else {
-        alert('Por favor, ingresá un DNI válido (solo números, sin puntos).');
-      }
-    });
-
-    document.getElementById('dniInput').addEventListener('keypress', function(event) {
-      if (event.key === 'Enter') {
-        document.getElementById('consultarBtn').click();
-      }
-    });
-  </script>
-
-</body>
-</html>
+      background-color
